@@ -44,3 +44,20 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+Crear proyecto
+npx create-react-app my-app --template typescript
+
+
+
+
+poco útil
+    https://locize.com/blog/react-i18next/
+
+
+https://react.i18next.com/latest/using-with-hook
+https://react.i18next.com/getting-started
+
+
+video
+https://youtu.be/C6PtKxW4rvk
