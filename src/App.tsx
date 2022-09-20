@@ -4,20 +4,22 @@ import './App.css';
 
 import { useTranslation } from "react-i18next";
 
+import Header from './components/header';
+
 function App() {
 
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
-    i18n.changeLanguage('es');
+    i18n.changeLanguage('es'); // %% ¿quizás no haga falta ahora el use effect?
   }, [i18n]);
   
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className="App-logo" alt="logo" /> {/* el logo tengo que eliminarlo */}
         <p>
-          {t('Welcome to React')}
+          <Header />
         </p>
       </header>
     </div>
