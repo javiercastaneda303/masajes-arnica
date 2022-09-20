@@ -4,7 +4,8 @@ import './App.css';
 
 import { useTranslation } from "react-i18next";
 
-import Header from './components/header';
+import Header from './components/Header';
+import ChangeLanguage from './components/ChangeLanguage';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" /> {/* el logo tengo que eliminarlo */}
         <p>
           <Header />
+          <ChangeLanguage />
         </p>
       </header>
     </div>
