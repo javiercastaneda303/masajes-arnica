@@ -11,6 +11,9 @@ import { initReactI18next, I18nextProvider } from "react-i18next";
 
 import global_es from './translations/es/global.json';
 import global_en from './translations/en/global.json';
+import Service from './components/Service';
+import Price from './components/Price';
+import Contact from './components/Contact';
 
 i18next
   .use(initReactI18next) // passes i18n down to react-i18next
@@ -20,20 +23,14 @@ i18next
     // or even better, manage them via a UI: https://react.i18next.com/guides/multiple-translation-files#manage-your-translations-with-a-management-gui)
     resources: {
       en: {
-        translation: {
-          "Welcome to React": "Welcome to React and react-i18next"
-        },
         global: global_en
       },
       es: {
-        translation: {
-          "Welcome to React": "Bienvenido a React y react-i18next"
-        },
         global: global_es
       }
     },
-    lng: "en", // %% PENDIENTE ELIMINAR!!!!  if you're using a language detector, do not define the lng option
-    fallbackLng: "en",
+    lng: "es", // %% PENDIENTE ELIMINAR!!!!  if you're using a language detector, do not define the lng option
+    fallbackLng: "es",
 
     interpolation: {
       escapeValue: false // react already safes from xss => https://www.i18next.com/translation-function/interpolation#unescape
@@ -48,12 +45,18 @@ root.render(
   <React.StrictMode>
     <I18nextProvider i18n={i18next}>
       <BrowserRouter>
-          <Routes>
-            <Route path="/:lang" element={<App />}>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<Service />} />
+            <Route path="/service/:lang" element={<Service />} />
+            <Route path="/service/" element={<Service />} />
+            <Route path="/price/:lang" element={<Price />} />
+            <Route path="/price/" element={<Price />} />
+            <Route path="/contact/:lang" element={<Contact />} />
+            <Route path="/contact/" element={<Contact />} />            
           </Route>
         </Routes>
-      </BrowserRouter>
-           
+      </BrowserRouter>           
     </I18nextProvider>
   </React.StrictMode>
 );
