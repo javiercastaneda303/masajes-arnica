@@ -2,6 +2,7 @@ import './index.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -42,10 +43,17 @@ i18next
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
     <I18nextProvider i18n={i18next}>
-      <App />
+      <BrowserRouter>
+          <Routes>
+            <Route path="/:lang" element={<App />}>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+           
     </I18nextProvider>
   </React.StrictMode>
 );
