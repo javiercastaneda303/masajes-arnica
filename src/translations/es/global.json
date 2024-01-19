@@ -1,11 +1,11 @@
 {
-    "header":{
-        "language":"Spanish",
-        "slogan":"activa la energía qeu hay dentro de ti",
-        "service":"Servicio",
-        "price":"Precios",
-        "contact":"Contacto",
-        "d":"",
-        "e":""
-    }
+  "header": {
+    "language": "Spanish",
+    "slogan": "activa la energía que hay dentro de ti",
+    "service": "Servicio",
+    "price": "Precios",
+    "contact": "Contacto",
+    "es": "Español",
+    "en": "English"
+  }
 }

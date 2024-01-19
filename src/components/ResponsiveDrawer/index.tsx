@@ -15,6 +15,10 @@ import MailIcon from '@mui/icons-material/Mail'
 import MenuIcon from '@mui/icons-material/Menu'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { Button } from '@mui/material'
+import './style.css'
 
 const drawerWidth = 240
 
@@ -27,6 +31,20 @@ interface Props {
 }
 
 export default function ResponsiveDrawer(props: Props) {
+  // se los coloco yo para que los items del Drawer hagan lo que yo quiero
+  const navigate = useNavigate()
+  const [t, i18n] = useTranslation('global')
+
+  // para navegar, va en una función
+  // deuda técnica, ¿un hook para ésto?  useMediaQuerry
+  let location = useLocation().pathname.split('/')[1]
+  const goTo = (lang: string) => {
+    i18n.changeLanguage(lang)
+    localStorage.setItem('lang', lang)
+    navigate(`${location}/${lang}`)
+  }
+
+  //por defecto lo que traia el Drawer
   const { window } = props
   const [mobileOpen, setMobileOpen] = React.useState(false)
 
@@ -38,23 +56,24 @@ export default function ResponsiveDrawer(props: Props) {
     <div>
       <Toolbar />
       <Divider />
+      <Divider />
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+        {['service', 'price', 'contact'].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+            <ListItemButton onClick={() => navigate(`${text}/${i18n.language}`)}>
+              <ListItemText primary={t(`header.${text}`)} />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
       <Divider />
       <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+        {['es', 'en'].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+            <ListItemButton onClick={() => goTo(text)}>
+              {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
+              <img src={`/icons/${text}.png`} className="labelDrawer" alt="PonerCountriAqui" style={{ cursor: 'pointer' }} />
+              <ListItemText primary={t(`header.${text}`)} />
             </ListItemButton>
           </ListItem>
         ))}

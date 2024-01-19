@@ -1,11 +1,11 @@
 {
-    "header":{
-        "language":"English",
-        "slogan":"activate the energy inside you",
-        "service":"Service",
-        "price":"Price",
-        "contact":"Contact",
-        "d":"",
-        "e":""
-    }
+  "header": {
+    "language": "English",
+    "slogan": "activate the energy inside you",
+    "service": "Service",
+    "price": "Price",
+    "contact": "Contact",
+    "es": "Español",
+    "en": "English"
+  }
 }
